@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next';
+import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
 import Head from 'next/head';
 
 import ProfileTemplate from '@/components/templates/Profile';
@@ -14,7 +14,9 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   return { props: { profile: res }, revalidate: 60 * 60 };
 };
 
-const Profile: NextPage<Props> = ({ profile }) => {
+const Profile: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
+  profile,
+}) => {
   return (
     <>
       <Head>
