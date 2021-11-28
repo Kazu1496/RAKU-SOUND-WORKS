@@ -58,7 +58,6 @@ interface EndpointTypeMap {
 export const createClient = <T extends EndpointTypeMap>(
   config: ClientConfig,
 ): Client<T> => {
-  console.log(config, 'config');
   const baseUrl = `https://${config.serviceId}.microcms.io/api/v1`;
   const httpOption = {
     headers: {

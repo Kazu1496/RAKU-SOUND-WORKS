@@ -1,4 +1,4 @@
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
 import ProfileTemplate from '@/components/templates/Profile';
@@ -9,6 +9,11 @@ interface Props {
   profile: ProfileType;
 }
 
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const res = await client.getObjectContent('profile');
+  return { props: { profile: res }, revalidate: 60 * 60 };
+};
+
 const Profile: NextPage<Props> = ({ profile }) => {
   return (
     <>
@@ -18,11 +23,6 @@ const Profile: NextPage<Props> = ({ profile }) => {
       <ProfileTemplate profile={profile} />
     </>
   );
-};
-
-Profile.getInitialProps = async (_ctx) => {
-  const res = await client.getObjectContent('profile');
-  return { profile: res };
 };
 
 export default Profile;
