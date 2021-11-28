@@ -2,7 +2,7 @@ import { Global } from '@emotion/react';
 // @ts-ignore
 import destyle from 'destyle.css';
 
-import { hoverOpacity, text } from '@/theme';
+import { color, hoverOpacity, spacing, text } from '@/theme';
 
 const GlobalStyle: React.FC = () => {
   return (
@@ -18,6 +18,13 @@ const GlobalStyle: React.FC = () => {
           '&:hover': {
             cursor: 'pointer',
           },
+        },
+        h1: {
+          fontSize: '40px',
+          fontWeight: 'bold',
+          color: color.secondary,
+          letterSpacing: '10px',
+          marginBottom: spacing.xxl,
         },
       }}
     />

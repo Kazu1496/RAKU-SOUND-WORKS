@@ -26,6 +26,7 @@ const ProfileTemplate: React.VFC<Props> = ({ profile }) => {
 
   return (
     <Wrapper>
+      <h1>PROFILE</h1>
       <ProfileArea>
         <Image
           src={`${profile.avatar.url}?w=200&h=200&dpr=1 1x, ${profile.avatar.url}?w=200&h=200&dpr=2 2x`}
@@ -33,18 +34,16 @@ const ProfileTemplate: React.VFC<Props> = ({ profile }) => {
           width='200px'
           height='200px'
         />
-        <div>
-          <Name>{profile.name}</Name>
-          <SnsList>
-            {snsLinks.map((link) => (
-              <li key={link.alt}>
-                <Link href={link.path} passHref>
-                  <link.icon size='30px' />
-                </Link>
-              </li>
-            ))}
-          </SnsList>
-        </div>
+        <Name>{profile.name}</Name>
+        <SnsList>
+          {snsLinks.map((link) => (
+            <li key={link.alt}>
+              <Link href={link.path} passHref>
+                <link.icon size='30px' />
+              </Link>
+            </li>
+          ))}
+        </SnsList>
       </ProfileArea>
       <Description>{profile.description}</Description>
     </Wrapper>

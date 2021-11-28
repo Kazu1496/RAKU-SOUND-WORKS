@@ -10,7 +10,7 @@ export const Wrapper = styled.div(() =>
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
-    margin: '40px auto',
+    margin: '60px auto',
   }),
 );
 

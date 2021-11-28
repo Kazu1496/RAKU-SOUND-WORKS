@@ -37,6 +37,7 @@ const WorksTemplate: React.VFC<Props> = ({ works }) => {
         work={targetWork}
       />
       <Wrapper>
+        <h1>WORKS</h1>
         <ContentList>
           {works.map((work) => (
             <Item key={work.id}>

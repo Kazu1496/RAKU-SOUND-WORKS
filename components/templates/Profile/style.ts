@@ -11,18 +11,17 @@ export const Wrapper = styled.div(() =>
     width: '100%',
     maxWidth: '700px',
     height: '100%',
-    margin: '40px auto',
+    margin: '60px auto',
   }),
 );
 
 export const ProfileArea = styled.div(() =>
   mq({
-    display: 'grid',
-    gridTemplateColumns: '200px 1fr',
-    gridGap: spacing.xxl,
-    alignItems: 'start',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
     width: '100%',
-    marginBottom: spacing.xxl,
+    marginBottom: '40px',
     '& > span': {
       borderRadius: '50%',
     },
@@ -33,18 +32,20 @@ export const Name = styled.h1(() =>
   mq({
     fontSize: font.xxl,
     fontWeight: 'bold',
-    marginBottom: spacing.xl,
+    textAlign: 'center',
+    margin: `${spacing.xl} 0`,
   }),
 );
 
 export const SnsList = styled.ul(() =>
   mq({
-    display: 'grid',
-    gridTemplateColumns: 'repeat(5, 30px)',
-    gridGap: spacing.m,
+    display: 'flex',
     '& > li': {
       cursor: 'pointer',
       ...hoverOpacity,
+      '&:not(:last-of-type)': {
+        marginRight: spacing.xl,
+      },
     },
   }),
 );

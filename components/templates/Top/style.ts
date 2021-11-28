@@ -5,11 +5,14 @@ import { mq } from '@/theme/mediaQuery';
 
 export const Wrapper = styled.div(() =>
   mq({
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%',
-    height: '100%',
   }),
 );
 

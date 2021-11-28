@@ -10,7 +10,7 @@ export const Wrapper = styled.div(() =>
     border: `8px solid ${color.primary}`,
     padding: spacing.m,
     '& > main': {
-      height: `calc(100vh - 40px - 40px - 16px - ${spacing.m} - ${spacing.m})`,
+      minHeight: `calc(100vh - 40px - 40px - 16px - ${spacing.m} - ${spacing.m})`,
     },
   }),
 );
