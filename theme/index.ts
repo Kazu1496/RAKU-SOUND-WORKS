@@ -19,7 +19,7 @@ const font = {
 } as const;
 
 const color = {
-  primary: '#E60039',
+  primary: '#64ADA1',
   secondary: '#313331',
   white: '#FFF',
 } as const;

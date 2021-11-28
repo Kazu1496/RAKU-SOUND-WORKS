@@ -16,7 +16,7 @@ eslintConfig = {
     'no-unreachable': 'error',
     'simple-import-sort/imports': 'error',
     'simple-import-sort/exports': 'error',
-    '@typescript-eslint/no-unused-vars': 0,
+    '@typescript-eslint/no-unused-vars': 'off',
     'unused-imports/no-unused-imports-ts': 'warn',
     'unused-imports/no-unused-vars': [
       'warn',

@@ -1,22 +1,44 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
-import { Footer, Header, Nav, Ul, Wrapper } from './style';
+import { Footer, Header, Li, Logo, Nav, Ul, Wrapper } from './style';
 
 const BaseLayout: React.FC = ({ children }) => {
+  const router = useRouter();
+
+  const isActive = (to: string): boolean => router.pathname.startsWith(to);
+
+  const links = [
+    {
+      title: 'PROFILE',
+      to: '/profile',
+    },
+    {
+      title: 'WORKS',
+      to: '/works',
+    },
+    {
+      title: 'CONTACT',
+      to: '/contact',
+    },
+  ];
+
   return (
     <Wrapper>
       <Header>
         <Nav>
+          <Logo>
+            <Link href='/' passHref>
+              <Image src='/avatar2.png' alt='' width='40px' height='40px' />
+            </Link>
+          </Logo>
           <Ul>
-            <li>
-              <Link href='/profile'>PROFILE</Link>
-            </li>
-            <li>
-              <Link href='/works'>WORKS</Link>
-            </li>
-            <li>
-              <Link href='/contact'>CONTACT</Link>
-            </li>
+            {links.map((link) => (
+              <Li key={link.title} isActive={isActive(link.to)}>
+                <Link href={link.to}>{link.title}</Link>
+              </Li>
+            ))}
           </Ul>
         </Nav>
       </Header>

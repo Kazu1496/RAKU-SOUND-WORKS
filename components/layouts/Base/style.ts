@@ -1,23 +1,24 @@
 import styled from '@emotion/styled';
 
-import { font, hoverOpacity, spacing, text } from '@/theme';
+import { color, font, hoverOpacity, spacing, text } from '@/theme';
 import { mq } from '@/theme/mediaQuery';
 
 export const Wrapper = styled.div(() =>
   mq({
     height: '100%',
     color: text.default,
-    border: '8px solid #64ADA1',
+    border: `8px solid ${color.primary}`,
     padding: spacing.m,
     '& > main': {
       height: `calc(100vh - 40px - 40px - 16px - ${spacing.m} - ${spacing.m})`,
     },
-    'a, button, svg': {
-      ...hoverOpacity,
-      '&:hover': {
-        cursor: 'pointer',
-      },
-    },
+  }),
+);
+
+export const Logo = styled.div(() =>
+  mq({
+    cursor: 'pointer',
+    ...hoverOpacity,
   }),
 );
 
@@ -44,7 +45,7 @@ export const Nav = styled.nav(() =>
   mq({
     display: 'flex',
     alignItems: 'center',
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     width: '100%',
   }),
 );
@@ -58,6 +59,14 @@ export const Ul = styled.ul(() =>
       '&:not(:last-of-type)': {
         marginRight: spacing.xl,
       },
+    },
+  }),
+);
+
+export const Li = styled.li((props: { isActive: boolean }) =>
+  mq({
+    '& > a': {
+      borderBottom: props.isActive ? `2px solid ${color.primary}` : '',
     },
   }),
 );
