@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { font, spacing } from '@/theme';
+import { font, hoverOpacity, spacing } from '@/theme';
 import { mq } from '@/theme/mediaQuery';
 
 export const Wrapper = styled.div(() =>
@@ -42,6 +42,10 @@ export const SnsList = styled.ul(() =>
     display: 'grid',
     gridTemplateColumns: 'repeat(5, 30px)',
     gridGap: spacing.m,
+    '& > li': {
+      cursor: 'pointer',
+      ...hoverOpacity,
+    },
   }),
 );
 

@@ -13,7 +13,7 @@ const GlobalStyle: React.FC = () => {
           color: text.default,
           fontFamily: `-apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Helvetica, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "ヒラギノ角ゴ ProN W3", Arial, "メイリオ", Meiryo, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Sans Emoji"`,
         },
-        'a, button, svg': {
+        a: {
           ...hoverOpacity,
           '&:hover': {
             cursor: 'pointer',

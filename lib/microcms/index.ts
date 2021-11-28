@@ -3,7 +3,7 @@ import { Profile, Work } from '@/lib/microcms/model';
 
 type EndpointTypeMap = {
   profile: Profile;
-  works: Work[];
+  works: Work;
 };
 
 export const client = createClient<EndpointTypeMap>({
