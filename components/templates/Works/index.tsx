@@ -48,7 +48,7 @@ const WorksTemplate: React.VFC<Props> = ({ works }) => {
                 }}
               >
                 <Image
-                  src={work.image.url}
+                  src={`${work.image.url}?w=320&h=${320 * 0.5625}&dpr=2`}
                   alt={work.title}
                   width={320}
                   height={320 * 0.5625}

@@ -25,6 +25,9 @@ const GlobalStyle: React.FC = () => {
           color: color.secondary,
           letterSpacing: '10px',
           marginBottom: spacing.xxl,
+          '&:first-letter': {
+            color: color.primary,
+          },
         },
       }}
     />

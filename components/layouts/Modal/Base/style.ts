@@ -41,7 +41,7 @@ export const Container = styled.div(
       baseZIndex: number;
     },
   ) => {
-    const dWidth = '500px';
+    const dWidth = '700px';
     const mWidth = '95%';
 
     return mq({
@@ -49,7 +49,7 @@ export const Container = styled.div(
       left: '50%',
       top: '50%',
       transform: 'translate(-50%, -50%)',
-      width: [mWidth, mWidth, mWidth, dWidth],
+      width: [mWidth, mWidth, dWidth],
       maxHeight: 'calc(var(--vh) - 100px)',
       borderRadius: '3px',
       backgroundColor: color.white,

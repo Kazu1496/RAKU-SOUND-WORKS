@@ -1,11 +1,11 @@
+import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
 
 import { Work } from '@/lib/microcms/model';
 
 import BaseModal, { ModalBasicProps } from '../Base';
-import { Description, Info, Tag, TagList, Title, Wrapper } from './style';
-
+import { ReleaseDate, SubInfo, Tag, TagList, Title, Wrapper } from './style';
 interface Props extends ModalBasicProps {
   work: Work | null;
 }
@@ -18,21 +18,24 @@ const WorkModalContent: React.FC<Props> = ({ work }) => {
   return (
     <Wrapper>
       <Image
-        src={work.image.url}
+        src={`${work.image.url}?w=700&h=${700 * 0.5625}&dpr=2`}
         alt={work.title}
-        width={460}
-        height={460 * 0.5625}
+        width={700}
+        height={700 * 0.5625}
         layout='responsive'
       />
-      <Info>
-        <Title>{work.title}</Title>
-        <Description>{work.description}</Description>
+      <Title>
+        {work.title}
+        <span>{work.artistName}</span>
+      </Title>
+      <SubInfo>
         <TagList>
           {work.tags.map((tag, i) => (
             <Tag key={`${tag.name}-${i}`}>{tag.name}</Tag>
           ))}
         </TagList>
-      </Info>
+        <ReleaseDate>{dayjs(work.releasedAt).format('YYYY-MM-DD')}</ReleaseDate>
+      </SubInfo>
     </Wrapper>
   );
 };

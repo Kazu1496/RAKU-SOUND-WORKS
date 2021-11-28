@@ -1,5 +1,4 @@
 import { Image, Model, Tag } from '@/lib/microcms/client/types/model';
-
 export interface Profile {
   name: string;
   description: string;
@@ -9,6 +8,7 @@ export interface Profile {
 export interface Work extends Model {
   title: string;
   image: Image;
-  description: string;
+  artistName: string;
   tags: Tag[];
+  releasedAt: Date;
 }

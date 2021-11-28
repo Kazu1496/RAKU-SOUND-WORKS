@@ -28,7 +28,7 @@ export const ProfileArea = styled.div(() =>
   }),
 );
 
-export const Name = styled.h1(() =>
+export const Name = styled.h2(() =>
   mq({
     fontSize: font.xxl,
     fontWeight: 'bold',

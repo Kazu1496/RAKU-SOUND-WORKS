@@ -12,25 +12,25 @@ export const Wrapper = styled.div(() =>
   }),
 );
 
-export const Info = styled.div(() =>
-  mq({
-    marginTop: spacing.l,
-  }),
-);
-
 export const Title = styled.p(() =>
   mq({
     fontSize: font.xxl,
     fontWeight: 'bold',
+    margin: `${spacing.l} 0`,
+    '& > span': {
+      color: text.gray,
+      fontSize: font.s,
+      fontWeight: 'normal',
+      marginLeft: spacing.s,
+    },
   }),
 );
 
-export const Description = styled.p(() =>
+export const SubInfo = styled.div(() =>
   mq({
-    fontSize: font.m,
-    lineHeight: '1.5em',
-    whiteSpace: 'pre-line',
-    margin: `${spacing.xl} 0`,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'flex-end',
   }),
 );
 
@@ -43,6 +43,7 @@ export const TagList = styled.ul(() =>
     },
   }),
 );
+
 export const Tag = styled.li(() =>
   mq({
     color: text.white,
@@ -51,5 +52,12 @@ export const Tag = styled.li(() =>
     backgroundColor: color.primary,
     borderRadius: '4px',
     padding: spacing.s,
+  }),
+);
+
+export const ReleaseDate = styled.time(() =>
+  mq({
+    color: text.gray,
+    fontSize: font.s,
   }),
 );

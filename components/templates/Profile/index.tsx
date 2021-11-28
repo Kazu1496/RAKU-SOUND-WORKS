@@ -29,7 +29,7 @@ const ProfileTemplate: React.VFC<Props> = ({ profile }) => {
       <h1>PROFILE</h1>
       <ProfileArea>
         <Image
-          src={`${profile.avatar.url}?w=200&h=200&dpr=1 1x, ${profile.avatar.url}?w=200&h=200&dpr=2 2x`}
+          src={`${profile.avatar.url}?w=200&h=200&dpr=2`}
           alt='プロフィール画像'
           width='200px'
           height='200px'
