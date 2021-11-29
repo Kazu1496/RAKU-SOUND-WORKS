@@ -55,7 +55,10 @@ const WorksTemplate: React.VFC<Props> = ({ works }) => {
                   objectFit='cover'
                 />
                 <WorkAbout>
-                  <Title>{work.title}</Title>
+                  <Title>
+                    {work.title}
+                    <span>{work.artistName}</span>
+                  </Title>
                 </WorkAbout>
               </ImageWrapper>
             </Item>
