@@ -58,5 +58,6 @@ export const Description = styled.p(() =>
     fontSize: font.m,
     whiteSpace: 'pre-line',
     lineHeight: '2em',
+    marginBottom: [spacing.xxl, spacing.xxl, '40px'],
   }),
 );

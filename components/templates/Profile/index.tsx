@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { FaInstagram, FaTwitter } from 'react-icons/fa';
 
 import HeadLine from '@/components/elements/HeadLine';
+import TwitterTimeline from '@/components/elements/Timeline';
 import { Profile } from '@/lib/microcms/model';
 
 import { Description, Name, ProfileArea, SnsList, Wrapper } from './style';
@@ -46,6 +47,7 @@ const ProfileTemplate: React.VFC<Props> = ({ profile }) => {
         </SnsList>
       </ProfileArea>
       <Description>{profile.description}</Description>
+      <TwitterTimeline />
     </Wrapper>
   );
 };
