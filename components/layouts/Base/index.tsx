@@ -29,9 +29,9 @@ const BaseLayout: React.FC = ({ children }) => {
       <Header>
         <Nav>
           <Logo>
-            <Link href='/' passHref>
+            <a href='/'>
               <Image src='/avatar2.png' alt='' width='40px' height='40px' />
-            </Link>
+            </a>
           </Logo>
           <Ul>
             {links.map((link) => (

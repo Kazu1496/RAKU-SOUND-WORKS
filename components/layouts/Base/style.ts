@@ -62,8 +62,9 @@ export const Ul = styled.ul(() =>
     '& > li': {
       display: 'flex',
       alignItems: 'center',
+      fontSize: [font.xs, font.s, font.m],
       '&:not(:last-of-type)': {
-        marginRight: spacing.xl,
+        marginRight: [spacing.s, spacing.m, spacing.xl],
       },
     },
   }),

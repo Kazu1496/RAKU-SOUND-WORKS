@@ -1,5 +1,4 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { FaInstagram, FaTwitter } from 'react-icons/fa';
 
 import HeadLine from '@/components/elements/HeadLine';
@@ -39,9 +38,9 @@ const ProfileTemplate: React.VFC<Props> = ({ profile }) => {
         <SnsList>
           {snsLinks.map((link) => (
             <li key={link.alt}>
-              <Link href={link.path} passHref>
+              <a href={link.path} target='_blank' rel='noreferrer'>
                 <link.icon size='30px' />
-              </Link>
+              </a>
             </li>
           ))}
         </SnsList>

@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { color } from '@/theme';
+import { color, font } from '@/theme';
 import { mq } from '@/theme/mediaQuery';
 
 export const Wrapper = styled.div(() =>
@@ -19,18 +19,23 @@ export const Wrapper = styled.div(() =>
 export const H1 = styled.h1(() =>
   mq({
     display: 'flex',
+    flexDirection: ['column-reverse', 'column-reverse', 'row'],
+    flexWrap: 'wrap',
+    justifyContent: 'center',
     alignItems: 'center',
-    fontSize: '40px',
+    fontSize: [font.xxl, font.xxl, '40px'],
     fontWeight: 'bold',
     color: color.secondary,
+    textAlign: 'center',
     letterSpacing: '10px',
+    wordWrap: 'break-word',
     '&::after': {
       content: '""',
       display: 'block',
-      width: '300px',
-      height: '400px',
+      width: ['150px', '150px', '300px'],
+      height: ['200px', '200px', '400px'],
       backgroundImage: 'url("/avatar2.png")',
-      backgroundSize: '400px',
+      backgroundSize: ['200px', '200px', '400px'],
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
     },
