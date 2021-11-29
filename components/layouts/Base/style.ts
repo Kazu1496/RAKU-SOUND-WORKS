@@ -5,12 +5,17 @@ import { mq } from '@/theme/mediaQuery';
 
 export const Wrapper = styled.div(() =>
   mq({
-    height: '100%',
+    position: 'relative',
+    minHeight: '100%',
     color: text.default,
     border: `8px solid ${color.primary}`,
     padding: spacing.m,
     '& > main': {
-      minHeight: `calc(100vh - 40px - 40px - 16px - ${spacing.m} - ${spacing.m})`,
+      paddingBottom: '40px',
+    },
+    '& > footer': {
+      position: 'absolute',
+      bottom: 0,
     },
   }),
 );
@@ -36,6 +41,7 @@ export const Footer = styled.footer(() =>
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
+    width: '100%',
     height: '40px',
     fontSize: font.xs,
   }),
