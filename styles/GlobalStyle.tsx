@@ -11,6 +11,7 @@ const GlobalStyle: React.FC = () => {
         destyle,
         'html, body, body > div:first-of-type, div#__next': {
           height: '100%',
+          overflowX: 'hidden',
         },
         body: {
           height: '100%',
