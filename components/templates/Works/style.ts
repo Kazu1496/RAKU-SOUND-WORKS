@@ -10,6 +10,9 @@ export const Wrapper = styled.div(() =>
     alignItems: 'center',
     width: '100%',
     margin: '60px auto',
+    '& > h1': {
+      marginBottom: '40px',
+    },
   }),
 );
 

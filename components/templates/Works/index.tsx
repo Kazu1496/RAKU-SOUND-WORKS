@@ -5,6 +5,7 @@ import React, { useState } from 'react';
 const WorkModal = dynamic(() => import('@/components/layouts/Modal/Work'), {
   ssr: false,
 });
+import HeadLine from '@/components/elements/HeadLine';
 import { Work } from '@/lib/microcms/model';
 
 import {
@@ -37,7 +38,7 @@ const WorksTemplate: React.VFC<Props> = ({ works }) => {
         work={targetWork}
       />
       <Wrapper>
-        <h1>WORKS</h1>
+        <HeadLine>WORKS</HeadLine>
         <ContentList>
           {works.map((work) => (
             <Item key={work.id}>

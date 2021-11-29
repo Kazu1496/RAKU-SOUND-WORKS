@@ -12,6 +12,9 @@ export const Wrapper = styled.div(() =>
     maxWidth: '700px',
     height: '100%',
     margin: '60px auto',
+    '& > h1': {
+      marginBottom: '40px',
+    },
   }),
 );
 

@@ -1,5 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 
+import HeadLine from '@/components/elements/HeadLine';
+
 import {
   ErrorMsg,
   Form,
@@ -65,7 +67,7 @@ const ProfileTemplate: React.VFC = () => {
 
   return (
     <Wrapper>
-      <h1>CONTACT</h1>
+      <HeadLine>CONTACT</HeadLine>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FormArea>
           <Label htmlFor='requirements'>要件</Label>

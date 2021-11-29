@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { FaInstagram, FaTwitter } from 'react-icons/fa';
 
+import HeadLine from '@/components/elements/HeadLine';
 import { Profile } from '@/lib/microcms/model';
 
 import { Description, Name, ProfileArea, SnsList, Wrapper } from './style';
@@ -26,7 +27,7 @@ const ProfileTemplate: React.VFC<Props> = ({ profile }) => {
 
   return (
     <Wrapper>
-      <h1>PROFILE</h1>
+      <HeadLine>PROFILE</HeadLine>
       <ProfileArea>
         <Image
           src={`${profile.avatar.url}?w=200&h=200&dpr=2`}
