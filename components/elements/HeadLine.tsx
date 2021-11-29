@@ -88,7 +88,7 @@ const H1 = styled.h1(() =>
   mq({
     position: 'relative',
     display: 'inline-block',
-    fontSize: '40px',
+    fontSize: ['30px', '30px', '40px'],
     fontWeight: 'bold',
     color: color.secondary,
     letterSpacing: '10px',

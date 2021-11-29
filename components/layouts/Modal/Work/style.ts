@@ -47,7 +47,7 @@ export const TagList = styled.ul(() =>
 export const Tag = styled.li(() =>
   mq({
     color: text.white,
-    fontSize: font.s,
+    fontSize: [font.xs, font.xs, font.s],
     fontWeight: 'bold',
     backgroundColor: color.primary,
     borderRadius: '4px',

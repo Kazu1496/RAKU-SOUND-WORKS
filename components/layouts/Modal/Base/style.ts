@@ -53,7 +53,7 @@ export const Container = styled.div(
       maxHeight: 'calc(var(--vh) - 100px)',
       borderRadius: '3px',
       backgroundColor: color.white,
-      padding: spacing.xxl,
+      padding: [spacing.l, spacing.l, spacing.xxl],
       overflowY: 'auto',
       zIndex: props.baseZIndex + 1,
       transition: `all ${transitionDuration}ms ease-out`,

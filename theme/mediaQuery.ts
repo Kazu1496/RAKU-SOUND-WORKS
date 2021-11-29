@@ -9,7 +9,7 @@ interface CustomDynamicStyleFunction extends DynamicStyleFunction {
 
 export const breakPoints = {
   small: 375,
-  medium: 769,
+  medium: 600,
   large: 1025,
 };
 

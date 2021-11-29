@@ -24,7 +24,7 @@ export const ProfileArea = styled.div(() =>
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
-    marginBottom: '40px',
+    marginBottom: [spacing.xxl, spacing.xxl, '40px'],
     '& > span': {
       borderRadius: '50%',
     },
@@ -33,10 +33,10 @@ export const ProfileArea = styled.div(() =>
 
 export const Name = styled.h2(() =>
   mq({
-    fontSize: font.xxl,
+    fontSize: [font.xl, font.xl, font.xxl],
     fontWeight: 'bold',
     textAlign: 'center',
-    margin: `${spacing.xl} 0`,
+    margin: [`${spacing.m} 0`, `${spacing.m} 0`, `${spacing.xl} 0`],
   }),
 );
 

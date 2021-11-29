@@ -9,6 +9,7 @@ eslintConfig = {
   plugins: ['simple-import-sort', 'unused-imports'],
   rules: {
     semi: ['error', 'always'],
+    '@next/next/no-html-link-for-pages': ['off'],
     'semi-spacing': ['error', { after: true, before: false }],
     'semi-style': ['error', 'last'],
     'no-extra-semi': 'error',

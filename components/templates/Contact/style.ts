@@ -47,7 +47,7 @@ export const FormArea = styled.div(() =>
 
 export const Label = styled.label((props: { required?: boolean }) =>
   mq({
-    fontSize: font.m,
+    fontSize: [font.s, font.s, font.m],
     marginBottom: spacing.s,
     '&:after': {
       content: props.required ? '"*"' : '""',
@@ -94,7 +94,7 @@ export const Submit = styled.button(() =>
   mq({
     position: 'relative',
     display: 'inline-block',
-    width: '300px',
+    width: '260px',
     height: '50px',
     color: color.primary,
     fontSize: '18px',
