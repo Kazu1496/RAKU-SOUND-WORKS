@@ -2,6 +2,7 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
 
+import EmbedYoutube from '@/components/elements/EmbedYoutube';
 import { Work } from '@/lib/microcms/model';
 
 import BaseModal, { ModalBasicProps } from '../Base';
@@ -17,13 +18,17 @@ const WorkModalContent: React.FC<Props> = ({ work }) => {
 
   return (
     <Wrapper>
-      <Image
-        src={`${work.image.url}?w=700&h=${700 * 0.5625}&dpr=2`}
-        alt={work.title}
-        width={700}
-        height={700 * 0.5625}
-        layout='responsive'
-      />
+      {work.youtubeUrl ? (
+        <EmbedYoutube url={work.youtubeUrl} />
+      ) : (
+        <Image
+          src={`${work.image.url}?w=700&h=${700 * 0.5625}&dpr=2`}
+          alt={work.title}
+          width={700}
+          height={700 * 0.5625}
+          layout='responsive'
+        />
+      )}
       <Title>
         {work.title}
         <span>{work.artistName}</span>

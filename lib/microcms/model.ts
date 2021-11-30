@@ -11,4 +11,6 @@ export interface Work extends Model {
   artistName: string;
   tags: Tag[];
   releasedAt: Date;
+  youtubeUrl?: string;
+  isPickedUp: boolean;
 }
