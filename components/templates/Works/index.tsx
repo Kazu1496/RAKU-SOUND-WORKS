@@ -1,21 +1,16 @@
 import dynamic from 'next/dynamic';
-import Image from 'next/image';
 import React, { useState } from 'react';
 
 const WorkModal = dynamic(() => import('@/components/layouts/Modal/Work'), {
   ssr: false,
 });
+import dayjs from 'dayjs';
+
 import HeadLine from '@/components/elements/HeadLine';
+import WorkItem from '@/components/layouts/WorkItem';
 import { Work } from '@/lib/microcms/model';
 
-import {
-  ContentList,
-  ImageWrapper,
-  Item,
-  Title,
-  WorkAbout,
-  Wrapper,
-} from './style';
+import { List, WorkList, Wrapper } from './style';
 
 interface Props {
   works: Work[];
@@ -30,6 +25,16 @@ const WorksTemplate: React.VFC<Props> = ({ works }) => {
     setTargetWork(null);
   };
 
+  const handleClick = (work: Work) => {
+    setIsOpen(true);
+    setTargetWork(work);
+  };
+
+  const pickupWorks = works.filter((w) => w.isPickedUp);
+  const otherWorks = works
+    .filter((w) => !w.isPickedUp)
+    .sort((a, b) => dayjs(b.releasedAt).diff(a.releasedAt));
+
   return (
     <>
       <WorkModal
@@ -39,32 +44,13 @@ const WorksTemplate: React.VFC<Props> = ({ works }) => {
       />
       <Wrapper>
         <HeadLine>WORKS</HeadLine>
-        <ContentList>
-          {works.map((work) => (
-            <Item key={work.id}>
-              <ImageWrapper
-                onClick={() => {
-                  setIsOpen(true);
-                  setTargetWork(work);
-                }}
-              >
-                <Image
-                  src={`${work.image.url}?w=320&h=${320 * 0.5625}&dpr=2`}
-                  alt={work.title}
-                  width={320}
-                  height={320 * 0.5625}
-                  objectFit='cover'
-                />
-                <WorkAbout>
-                  <Title>
-                    {work.title}
-                    <span>{work.artistName}</span>
-                  </Title>
-                </WorkAbout>
-              </ImageWrapper>
-            </Item>
+        <WorkList>
+          {[...pickupWorks, ...otherWorks].map((w) => (
+            <List key={w.id}>
+              <WorkItem work={w} onClick={() => handleClick(w)} />
+            </List>
           ))}
-        </ContentList>
+        </WorkList>
       </Wrapper>
     </>
   );
