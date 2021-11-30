@@ -13,10 +13,10 @@ const WorkItem: React.FC<Props> = ({ work, onClick }) => {
   return (
     <Wrapper onClick={() => onClick()}>
       <Image
-        src={`${work.image.url}?w=320&h=${320 * 0.5625}&dpr=2`}
+        src={`${work.image.url}?w=400&h=${400 * 0.5625}&dpr=2`}
         alt={work.title}
-        width={320}
-        height={320 * 0.5625}
+        width={400}
+        height={400 * 0.5625}
         objectFit='cover'
       />
       <WorkAbout>

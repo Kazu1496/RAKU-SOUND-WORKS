@@ -5,11 +5,10 @@ import { mq } from '@/theme/mediaQuery';
 
 export const Wrapper = styled.button(() =>
   mq({
-    backgroundColor: color.white,
-    position: 'relative',
     display: 'inline-block',
     cursor: 'pointer',
-    height: 'calc(320px * 0.5625)',
+    width: '100%',
+    height: '100%',
     overflow: 'hidden',
     textAlign: 'left',
     background: '#000',
@@ -17,6 +16,8 @@ export const Wrapper = styled.button(() =>
       transition: 'all 0.4s ease',
     },
     '& img': {
+      width: '100%',
+      height: '100%',
       maxWidth: '100%',
       backfaceVisibility: 'hidden',
       verticalAlign: 'top',

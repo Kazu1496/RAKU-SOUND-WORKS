@@ -10,7 +10,7 @@ import HeadLine from '@/components/elements/HeadLine';
 import WorkItem from '@/components/layouts/WorkItem';
 import { Work } from '@/lib/microcms/model';
 
-import { ContentList, Wrapper } from './style';
+import { List, WorkList, Wrapper } from './style';
 
 interface Props {
   works: Work[];
@@ -44,13 +44,13 @@ const WorksTemplate: React.VFC<Props> = ({ works }) => {
       />
       <Wrapper>
         <HeadLine>WORKS</HeadLine>
-        <ContentList>
+        <WorkList>
           {[...pickupWorks, ...otherWorks].map((w) => (
-            <li key={w.id}>
+            <List key={w.id}>
               <WorkItem work={w} onClick={() => handleClick(w)} />
-            </li>
+            </List>
           ))}
-        </ContentList>
+        </WorkList>
       </Wrapper>
     </>
   );
