@@ -11,7 +11,7 @@ interface Props {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await client.getObjectContent('profile');
-  return { props: { profile: res } };
+  return { props: { profile: res }, revalidate: 60 * 60 * 24 };
 };
 
 const ProfilePage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({

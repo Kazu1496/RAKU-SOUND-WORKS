@@ -11,7 +11,7 @@ interface Props {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const res = await client.getContents('works');
-  return { props: { works: res } };
+  return { props: { works: res }, revalidate: 60 * 60 * 24 };
 };
 
 const WorksPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
