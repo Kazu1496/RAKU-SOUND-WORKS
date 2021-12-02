@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
 import HeadLine from '@/components/elements/HeadLine';
@@ -22,7 +23,7 @@ export interface ContactInput {
   message: string;
 }
 
-export const selectOptions = [
+export const options = [
   {
     value: 'production',
     text: '制作のご依頼について',
@@ -43,15 +44,26 @@ const ProfileTemplate: React.VFC = () => {
     formState: { errors },
   } = useForm();
 
+  const [processing, setProcessing] = useState<boolean>(false);
+
   const onSubmit: SubmitHandler<ContactInput> = (data) => {
     if (!confirm('入力された内容でメールを送信しますか？')) {
       return;
     }
+    setProcessing(true);
+
     fetch('/api/sendMail', {
       method: 'POST',
       mode: 'cors',
       credentials: 'same-origin',
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        requirements:
+          options.find((opt) => opt.value === data.requirements)?.text || '',
+        name: data.name,
+        companyName: data.companyName,
+        email: data.email,
+        message: data.message,
+      }),
     })
       .then((res) => {
         reset();
@@ -62,6 +74,9 @@ const ProfileTemplate: React.VFC = () => {
         alert(
           '予期せぬエラーが発生しました。お手数ですが時間をおいて再度送信ください。',
         );
+      })
+      .finally(() => {
+        setProcessing(false);
       });
   };
 
@@ -76,7 +91,7 @@ const ProfileTemplate: React.VFC = () => {
             defaultValue='production'
             {...register('requirements')}
           >
-            {selectOptions.map((opt) => (
+            {options.map((opt) => (
               <option key={opt.value} value={opt.value}>
                 {opt.text}
               </option>
@@ -120,8 +135,7 @@ const ProfileTemplate: React.VFC = () => {
           <Textarea id='message' {...register('message', { required: true })} />
           {errors.message && <ErrorMsg>メッセージを入力してください</ErrorMsg>}
         </FormArea>
-
-        <Submit type='submit'>送信する</Submit>
+        <Submit type='submit'>{processing ? '送信中...' : '送信する'}</Submit>
       </Form>
     </Wrapper>
   );
