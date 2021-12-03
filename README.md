@@ -5,7 +5,6 @@
 - Next.js（SSG/ISR）
 - Vercel（Hosting/Build）
 - microCMS（コンテンツ管理）
-- SendGrid（メール配信）
 
 ## 開発環境
 
