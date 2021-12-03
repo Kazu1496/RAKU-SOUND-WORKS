@@ -1,6 +1,6 @@
 import type { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import Head from 'next/head';
 
+import Meta from '@/components/elements/Meta';
 import WorksTemplate from '@/components/templates/Works';
 import { client } from '@/lib/microcms';
 import { Work } from '@/lib/microcms/model';
@@ -19,9 +19,7 @@ const WorksPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({
 }) => {
   return (
     <>
-      <Head>
-        <title>Raku Official Website - Works</title>
-      </Head>
+      <Meta title='WORKS' />
       <WorksTemplate works={works} />
     </>
   );

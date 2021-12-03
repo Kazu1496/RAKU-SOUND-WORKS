@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+import { SITE_NAME } from '@/constant/meta';
+
 import { Footer, Header, Li, Logo, Nav, Ul, Wrapper } from './style';
 
 const BaseLayout: React.FC = ({ children }) => {
@@ -43,7 +45,7 @@ const BaseLayout: React.FC = ({ children }) => {
         </Nav>
       </Header>
       <main>{children}</main>
-      <Footer>&copy; Raku Official Website 2021</Footer>
+      <Footer>&copy; {SITE_NAME} 2021</Footer>
     </Wrapper>
   );
 };
