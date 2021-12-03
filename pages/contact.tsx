@@ -1,14 +1,12 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 
+import Meta from '@/components/elements/Meta';
 import ContactTemplate from '@/components/templates/Contact';
 
 const ContactPage: NextPage = () => {
   return (
     <>
-      <Head>
-        <title>Raku Official Website - Contact</title>
-      </Head>
+      <Meta title='CONTACT' />
       <ContactTemplate />
     </>
   );
