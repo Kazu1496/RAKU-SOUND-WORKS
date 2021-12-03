@@ -1,7 +1,8 @@
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import { useMemo } from 'react';
 
-import { SITE_NAME } from '@/constant/meta';
+import { BASE_URL, SITE_NAME } from '@/constant/meta';
 
 interface Props {
   title?: string;
@@ -12,14 +13,16 @@ type Meta = {
 };
 
 const Meta: React.FC<Props> = ({ title }) => {
+  const router = useRouter();
+
   const _title = useMemo(
     () => (title ? `${title} | ${SITE_NAME}` : SITE_NAME),
     [title],
   );
+  const url = useMemo(() => BASE_URL + router.asPath, [router.asPath]);
   const _description = '';
   const _keyword = '';
-  const url = process.env.VERCEL_URL || '';
-  const ogpImagePath = '/ogp.png';
+  const ogpImagePath = `${BASE_URL}/ogp.png`;
 
   const twitterMeta: Meta = {
     'twitter:title': _title,
