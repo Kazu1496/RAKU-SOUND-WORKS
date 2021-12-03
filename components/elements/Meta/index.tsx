@@ -47,12 +47,12 @@ const Meta: React.FC<Props> = ({ title }) => {
       <title>{_title}</title>
       <link rel='canonical' href={url} />
 
-      {Object.keys(ogMeta).map((key) => {
-        <meta key={key} property={key} content={ogMeta[key]} />;
-      })}
-      {Object.keys(twitterMeta).map((key) => {
-        <meta key={key} name={key} content={twitterMeta[key]} />;
-      })}
+      {Object.keys(ogMeta).map((key) => (
+        <meta key={key} property={key} content={ogMeta[key]} />
+      ))}
+      {Object.keys(twitterMeta).map((key) => (
+        <meta key={key} name={key} content={twitterMeta[key]} />
+      ))}
     </Head>
   );
 };
