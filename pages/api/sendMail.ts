@@ -1,5 +1,6 @@
-import sgMail, { MailDataRequired } from '@sendgrid/mail';
 import type { NextApiHandler } from 'next';
+import nodemailer from 'nodemailer';
+import Mail from 'nodemailer/lib/mailer';
 
 import { ContactInput } from '@/components/templates/Contact';
 
@@ -8,30 +9,42 @@ const handler: NextApiHandler = async (req, res) => {
     return res.status(400).end();
   }
 
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY || '');
-
   const contactData = JSON.parse(req.body) as ContactInput;
   const { email, message, name, requirements, companyName } = contactData;
   if (!email || !message || !name) {
     return res.status(400).end();
   }
 
-  const msg: MailDataRequired = {
+  const smtp = nodemailer.createTransport({
+    port: 465,
+    service: 'Gmail',
+    secure: true,
+    auth: {
+      user: process.env.RECEIVE_MAIL_ADDRESS,
+      pass: process.env.MAILER_PASSWORD,
+    },
+  });
+
+  const msg: Mail.Options = {
     to: process.env.RECEIVE_MAIL_ADDRESS,
     from: {
-      name: `${name}（会社名：${companyName || '記載なし'}）`,
-      email,
+      name: `${name}（会社名: ${companyName || '記載なし'}) <${email}>`,
+      address: email,
     },
     subject: `お問い合わせ（${requirements}）`,
     text: message,
   };
 
-  const sendResponse = await sgMail.send(msg);
-
-  if (sendResponse[0].statusCode === 202) {
-    return res.status(200).end();
+  try {
+    smtp.sendMail(msg, (error, _) => {
+      if (error) {
+        return res.status(500).end();
+      }
+      return res.status(200).end();
+    });
+  } catch (e) {
+    return res.status(500).end();
   }
-  return res.status(500).end();
 };
 
 export default handler;
