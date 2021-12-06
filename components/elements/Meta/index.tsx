@@ -20,13 +20,14 @@ const Meta: React.FC<Props> = ({ title }) => {
     [title],
   );
   const url = useMemo(() => BASE_URL + router.asPath, [router.asPath]);
-  const _description = '';
-  const _keyword = '';
+  const description =
+    '作曲・編曲・ミキシング、樂（Raku）の公式サイト。1996年生まれ。大阪府出身。14歳の頃にBUMP OF CHICKENに憧れギターを始めたことをきっかけに音楽に傾倒する。大学在学中よりシンガーソングライター・歌い手・アイドル・ゲームなど様々な楽曲に編曲家として携わり、23歳の頃卒業とともにフリーランスとしての活動を開始。モダンな打ち込みサウンドと生楽器が共存した編曲を得意とする。音楽ユニット"Islet"のメンバーとしても活動中。';
+  const keyword = 'Raku,樂,Islet';
   const ogpImagePath = `${BASE_URL}/ogp.png`;
 
   const twitterMeta: Meta = {
     'twitter:title': _title,
-    'twitter:description': _description,
+    'twitter:description': description,
     'twitter:image': ogpImagePath,
     'twitter:url': url,
     'twitter:card': 'summary_large_image',
@@ -34,10 +35,10 @@ const Meta: React.FC<Props> = ({ title }) => {
   };
 
   const ogMeta: Meta = {
-    description: _description,
-    keyword: _keyword,
+    description: description,
+    keyword: keyword,
     'og:title': _title,
-    'og:description': _description,
+    'og:description': description,
     'og:url': url,
     'og:type': 'website',
     'og:site_name': SITE_NAME,

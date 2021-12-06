@@ -1,5 +1,4 @@
-const SITE_NAME = 'Raku Official Website';
-const BASE_URL = 'https://raku-portfolio.vercel.app';
-const DESCRIPTION = '';
+const SITE_NAME = 'RAKU SOUND WORKS';
+const BASE_URL = 'https://rakusoundworks.com';
 
-export { BASE_URL, DESCRIPTION, SITE_NAME };
+export { BASE_URL, SITE_NAME };
