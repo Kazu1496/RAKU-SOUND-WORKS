@@ -9,7 +9,7 @@ export const Wrapper = styled.div(() =>
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
-    margin: '60px auto',
+    margin: `60px auto`,
     '& > h1': {
       marginBottom: '40px',
     },
@@ -42,5 +42,14 @@ export const List = styled.li(() =>
       right: 0,
       bottom: 0,
     },
+  }),
+);
+
+export const LoadingWrapper = styled.div(() =>
+  mq({
+    display: 'flex',
+    justifyContent: 'center',
+    width: '100%',
+    marginBottom: '60px',
   }),
 );

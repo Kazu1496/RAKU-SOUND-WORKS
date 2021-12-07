@@ -13,7 +13,7 @@ export const Wrapper = styled.button(() =>
     textAlign: 'left',
     background: '#000',
     '& *, &:before, &:after': {
-      transition: 'all 0.4s ease',
+      transition: 'all 0.2s ease',
     },
     '& img': {
       width: '100%',
@@ -46,7 +46,7 @@ export const Wrapper = styled.button(() =>
     },
     '&:hover:before, &:hover:after': {
       opacity: 1,
-      transitionDelay: '0.25s',
+      transitionDelay: '0.1s',
     },
     '&:hover:before': {
       width: '40px',
@@ -56,7 +56,7 @@ export const Wrapper = styled.button(() =>
     },
     '&:hover p': {
       opacity: 1,
-      transitionDelay: '0.35s',
+      transitionDelay: '0.15s',
     },
   }),
 );

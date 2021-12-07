@@ -5,13 +5,17 @@ import WorksTemplate from '@/components/templates/Works';
 import { client } from '@/lib/microcms';
 import { Work } from '@/lib/microcms/model';
 
+export const FETCH_WORKS_LIMIT = 9;
 interface Props {
   works: Work[];
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const res = await client.getContents('works');
-  return { props: { works: res }, revalidate: 60 * 60 * 24 };
+  const res = await client.getContents('works', {
+    limit: FETCH_WORKS_LIMIT,
+    offset: 0,
+  });
+  return { props: { works: res } };
 };
 
 const WorksPage: NextPage<InferGetStaticPropsType<typeof getStaticProps>> = ({

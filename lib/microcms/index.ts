@@ -7,6 +7,6 @@ type EndpointTypeMap = {
 };
 
 export const client = createClient<EndpointTypeMap>({
-  serviceId: process.env.MICROCMS_SERVICE_ID || '',
-  apiKey: process.env.MICROCMS_API_KEY || '',
+  serviceId: process.env.NEXT_PUBLIC_MICROCMS_SERVICE_ID || '',
+  apiKey: process.env.NEXT_PUBLIC_MICROCMS_API_KEY || '',
 });
