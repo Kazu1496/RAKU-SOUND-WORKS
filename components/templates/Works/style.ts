@@ -19,12 +19,12 @@ export const Wrapper = styled.div(() =>
 
 export const TagList = styled.ul(() =>
   mq({
-    display: 'flex',
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, 100px)',
+    gridGap: spacing.s,
     justifyContent: 'center',
+    width: '100%',
     margin: `0 0 ${spacing.xxl}`,
-    '& > li': {
-      marginRight: spacing.s,
-    },
   }),
 );
 
