@@ -9,6 +9,7 @@ export const Wrapper = styled.div(() =>
     flexDirection: 'column',
     alignItems: 'center',
     width: '100%',
+    maxWidth: '1240px',
     margin: `60px auto`,
     '& > h1': {
       marginBottom: '40px',
