@@ -1,9 +1,10 @@
 import { createClient } from '@/lib/microcms/client';
-import { Profile, Work } from '@/lib/microcms/model';
+import { Profile, Tag, Work } from '@/lib/microcms/model';
 
 type EndpointTypeMap = {
   profile: Profile;
   works: Work;
+  tags: Tag;
 };
 
 export const client = createClient<EndpointTypeMap>({

@@ -2,16 +2,22 @@ import dayjs from 'dayjs';
 import Image from 'next/image';
 import React from 'react';
 
+import Button from '@/components/elements/Button';
 import EmbedYoutube from '@/components/elements/EmbedYoutube';
 import { Work } from '@/lib/microcms/model';
 
 import BaseModal, { ModalBasicProps } from '../Base';
-import { ReleaseDate, SubInfo, Tag, TagList, Title, Wrapper } from './style';
+import { ReleaseDate, SubInfo, TagList, Title, Wrapper } from './style';
 interface Props extends ModalBasicProps {
   work: Work | null;
+  onClickTag: (_id: string) => void;
 }
 
-const WorkModalContent: React.FC<Props> = ({ work }) => {
+const WorkModalContent: React.FC<Props> = ({
+  work,
+  onClickTag,
+  handleClose,
+}) => {
   if (work === null) {
     return <></>;
   }
@@ -36,7 +42,20 @@ const WorkModalContent: React.FC<Props> = ({ work }) => {
       <SubInfo>
         <TagList>
           {work.tags.map((tag, i) => (
-            <Tag key={`${tag.name}-${i}`}>{tag.name}</Tag>
+            <li key={`${tag.name}-${i}`}>
+              <Button
+                bgColor='primary'
+                fontSize='xs'
+                spacing='s'
+                radius='s'
+                onClick={() => {
+                  onClickTag(tag.id);
+                  handleClose();
+                }}
+              >
+                {tag.name}
+              </Button>
+            </li>
           ))}
         </TagList>
         <ReleaseDate>{dayjs(work.releasedAt).format('YYYY-MM-DD')}</ReleaseDate>

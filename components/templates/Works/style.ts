@@ -16,6 +16,17 @@ export const Wrapper = styled.div(() =>
   }),
 );
 
+export const TagList = styled.ul(() =>
+  mq({
+    display: 'flex',
+    justifyContent: 'center',
+    margin: `0 0 ${spacing.xxl}`,
+    '& > li': {
+      marginRight: spacing.s,
+    },
+  }),
+);
+
 export const WorkList = styled.ol(() =>
   mq({
     display: 'grid',

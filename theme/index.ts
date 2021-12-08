@@ -18,6 +18,13 @@ const font = {
   xxl: '24px',
 } as const;
 
+const borderRadius = {
+  s: '4px',
+  m: '8px',
+  l: '12px',
+  circle: '50%',
+} as const;
+
 const color = {
   primary: '#64ADA1',
   secondary: '#313331',
@@ -54,4 +61,4 @@ const hoverOpacity = {
   }),
 };
 
-export { color, font, hoverOpacity, spacing, text };
+export { borderRadius, color, font, hoverOpacity, spacing, text };
