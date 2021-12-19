@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { color, font } from '@/theme';
+import { text } from '@/theme';
 import { mq } from '@/theme/mediaQuery';
 
 export const Wrapper = styled.div(() =>
@@ -18,26 +18,12 @@ export const Wrapper = styled.div(() =>
 
 export const H1 = styled.h1(() =>
   mq({
-    display: 'flex',
-    flexDirection: ['column-reverse', 'column-reverse', 'row'],
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    alignItems: 'center',
-    fontSize: [font.xxl, font.xxl, '40px'],
-    fontWeight: 'bold',
-    color: color.secondary,
-    textAlign: 'center',
-    letterSpacing: '10px',
-    wordWrap: 'break-word',
-    '&::after': {
-      content: '""',
-      display: 'block',
-      width: ['150px', '150px', '300px'],
-      height: ['200px', '200px', '400px'],
-      backgroundImage: 'url("/avatar2.png")',
-      backgroundSize: ['200px', '200px', '400px'],
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-    },
+    color: text.white,
+    width: ['280px', '280px', '450px', '450px'],
+    height: ['280px', '280px', '450px', '450px'],
+    backgroundImage: 'url("/Logo_HP_Green.png")',
+    backgroundSize: ['280px', '280px', '450px', '450px'],
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center',
   }),
 );
