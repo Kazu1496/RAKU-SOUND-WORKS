@@ -32,7 +32,12 @@ const BaseLayout: React.FC = ({ children }) => {
         <Nav>
           <Logo>
             <a href='/'>
-              <Image src='/avatar2.png' alt='' width='40px' height='40px' />
+              <Image
+                src='/Logo_Favicon_Green.png'
+                alt=''
+                width='18px'
+                height='28px'
+              />
             </a>
           </Logo>
           <Ul>
