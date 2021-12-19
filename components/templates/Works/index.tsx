@@ -5,8 +5,8 @@ const WorkModal = dynamic(() => import('@/components/layouts/Modal/Work'), {
   ssr: false,
 });
 
-import Button from '@/components/elements/Button';
 import HeadLine from '@/components/elements/HeadLine';
+import Select, { Option } from '@/components/elements/Select';
 import Spinner from '@/components/elements/Spinner';
 import WorkItem from '@/components/layouts/WorkItem';
 import { useIntersection } from '@/hooks/useIntersection';
@@ -14,18 +14,12 @@ import { client } from '@/lib/microcms';
 import { Tag, Work } from '@/lib/microcms/model';
 import { FETCH_WORKS_LIMIT } from '@/pages/works';
 
-import { List, LoadingWrapper, TagList, WorkList, Wrapper } from './style';
+import { List, LoadingWrapper, TagSelector, WorkList, Wrapper } from './style';
 
 interface Props {
   works: Work[];
   tags: Tag[];
 }
-
-type SearchTags = {
-  id: string;
-  name: string;
-  clicked: boolean;
-};
 
 const WorksTemplate: React.VFC<Props> = ({ works, tags }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -33,18 +27,19 @@ const WorksTemplate: React.VFC<Props> = ({ works, tags }) => {
   const [_works, setWorks] = useState<Work[]>(works);
   const [page, setPage] = useState(1);
   const [fetching, setFetching] = useState<boolean>(false);
-  const [_tags, setTags] = useState<SearchTags[]>([
-    {
-      id: 'all',
-      name: 'すべて',
-      clicked: true,
-    },
-    ...tags.map((tag) => ({ id: tag.id, name: tag.name, clicked: false })),
-  ]);
+  const [selectedTag, setSelectedTag] = useState<Option['value']>('');
   const ref = useRef<HTMLDivElement>(
     null,
   ) as React.MutableRefObject<HTMLDivElement>;
   const intersection = useIntersection(ref);
+
+  const _tags = [
+    {
+      value: 'all',
+      text: 'すべて',
+    },
+    ...tags.map((tag) => ({ value: tag.id, text: tag.name })),
+  ];
 
   const getWorks = (opts?: { filters?: string; initialize?: boolean }) => {
     setFetching(true);
@@ -91,17 +86,18 @@ const WorksTemplate: React.VFC<Props> = ({ works, tags }) => {
   };
 
   const filterTags = (id: string) => {
+    const tag = _tags.find((tag) => tag.value === id);
+
+    if (!tag) {
+      alert('予期せぬエラーが発生しました');
+      return;
+    }
+
     getWorks({
       filters: id !== 'all' ? `tags[contains]${id}` : '',
       initialize: true,
     });
-    setTags((prev) => {
-      const newTags = [...prev];
-      newTags.forEach((tag) => {
-        tag.clicked = tag.id === id;
-      });
-      return newTags;
-    });
+    setSelectedTag(tag.text);
   };
 
   return (
@@ -114,22 +110,13 @@ const WorksTemplate: React.VFC<Props> = ({ works, tags }) => {
       />
       <Wrapper>
         <HeadLine>WORKS</HeadLine>
-        <TagList>
-          {_tags.map((tag) => (
-            <li key={tag.name}>
-              <Button
-                bgColor='primary'
-                fontSize='s'
-                spacing='s'
-                radius='s'
-                outline={!tag.clicked}
-                onClick={() => filterTags(tag.id)}
-              >
-                {tag.name}
-              </Button>
-            </li>
-          ))}
-        </TagList>
+        <TagSelector>
+          <Select
+            value={selectedTag}
+            options={_tags}
+            onSelect={(val) => filterTags(val)}
+          />
+        </TagSelector>
         <WorkList>
           {_works.map((w) => (
             <List key={w.id}>

@@ -17,13 +17,11 @@ export const Wrapper = styled.div(() =>
   }),
 );
 
-export const TagList = styled.ul(() =>
+export const TagSelector = styled.div(() =>
   mq({
-    display: 'grid',
-    gridTemplateColumns: 'repeat(auto-fit, 100px)',
-    gridGap: spacing.s,
+    display: 'flex',
     justifyContent: 'center',
-    width: '100%',
+    width: '150px',
     margin: `0 0 ${spacing.xxl}`,
   }),
 );
@@ -32,9 +30,9 @@ export const WorkList = styled.ol(() =>
   mq({
     display: 'grid',
     gridTemplateColumns: [
-      'repeat(auto-fit, minmax(0, 280px))',
-      'repeat(auto-fit, 320px)',
-      'repeat(auto-fit, 400px)',
+      'repeat(auto-fill, minmax(0, 280px))',
+      'repeat(auto-fill, 320px)',
+      'repeat(auto-fill, 400px)',
     ],
     gridGap: spacing.s,
     justifyContent: 'center',
