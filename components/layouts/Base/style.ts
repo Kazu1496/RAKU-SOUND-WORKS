@@ -10,9 +10,6 @@ export const Wrapper = styled.div(() =>
     color: text.default,
     border: `8px solid ${color.primary}`,
     padding: spacing.m,
-    '& > main': {
-      paddingBottom: '40px',
-    },
     '& > footer': {
       position: 'absolute',
       bottom: 0,
@@ -75,5 +72,13 @@ export const Li = styled.li((props: { isActive: boolean }) =>
     '& > a': {
       borderBottom: props.isActive ? `2px solid ${color.primary}` : '',
     },
+  }),
+);
+
+export const Main = styled.main(() =>
+  mq({
+    height: '1px',
+    minHeight: 'calc(100vh - 40px - 40px - 40px)',
+    width: '100%',
   }),
 );

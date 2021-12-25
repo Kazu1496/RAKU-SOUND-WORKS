@@ -1,9 +1,18 @@
-import { H1, Wrapper } from './style';
+import Image from 'next/image';
+
+import { Wrapper } from './style';
 
 const TopTemplate: React.VFC = () => {
   return (
     <Wrapper>
-      <H1>Raku Sound Works</H1>
+      <Image
+        src='/Logo_HP_Green.png'
+        width={450}
+        height={450}
+        quality={100}
+        objectFit='contain'
+        alt='Raku Sound Works'
+      />
     </Wrapper>
   );
 };

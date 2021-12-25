@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 
 import { SITE_NAME } from '@/constant/meta';
 
-import { Footer, Header, Li, Logo, Nav, Ul, Wrapper } from './style';
+import { Footer, Header, Li, Logo, Main, Nav, Ul, Wrapper } from './style';
 
 const BaseLayout: React.FC = ({ children }) => {
   const router = useRouter();
@@ -49,7 +49,7 @@ const BaseLayout: React.FC = ({ children }) => {
           </Ul>
         </Nav>
       </Header>
-      <main>{children}</main>
+      <Main>{children}</Main>
       <Footer>&copy; {SITE_NAME} 2021</Footer>
     </Wrapper>
   );
