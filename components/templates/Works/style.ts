@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { spacing } from '@/theme';
+import { font, spacing } from '@/theme';
 import { mq } from '@/theme/mediaQuery';
 
 export const Wrapper = styled.div(() =>
@@ -37,6 +37,14 @@ export const WorkList = styled.ol(() =>
     gridGap: spacing.s,
     justifyContent: 'center',
     width: '100%',
+  }),
+);
+
+export const EmptyText = styled.p(() =>
+  mq({
+    fontSize: font.m,
+    textAlign: 'center',
+    margin: `${spacing.xl} 0`,
   }),
 );
 

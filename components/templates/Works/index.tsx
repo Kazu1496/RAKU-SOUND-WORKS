@@ -14,7 +14,14 @@ import { client } from '@/lib/microcms';
 import { Tag, Work } from '@/lib/microcms/model';
 import { FETCH_WORKS_LIMIT } from '@/pages/works';
 
-import { List, LoadingWrapper, TagSelector, WorkList, Wrapper } from './style';
+import {
+  EmptyText,
+  List,
+  LoadingWrapper,
+  TagSelector,
+  WorkList,
+  Wrapper,
+} from './style';
 
 interface Props {
   works: Work[];
@@ -44,7 +51,12 @@ const WorksTemplate: React.VFC<Props> = ({ works, tags }) => {
   const getWorks = (opts?: { filters?: string; initialize?: boolean }) => {
     setFetching(true);
 
-    const offset = opts?.initialize ? 0 : FETCH_WORKS_LIMIT * page;
+    let offset = FETCH_WORKS_LIMIT * page;
+
+    if (opts?.initialize) {
+      offset = 0;
+      setPage(0);
+    }
 
     client
       .getContents('works', {
@@ -117,13 +129,19 @@ const WorksTemplate: React.VFC<Props> = ({ works, tags }) => {
             onSelect={(val) => filterTags(val)}
           />
         </TagSelector>
-        <WorkList>
-          {_works.map((w) => (
-            <List key={w.id}>
-              <WorkItem work={w} onClick={() => handleClick(w)} />
-            </List>
-          ))}
-        </WorkList>
+        {_works.length > 0 ? (
+          <WorkList>
+            {_works.map((w) => (
+              <List key={w.id}>
+                <WorkItem work={w} onClick={() => handleClick(w)} />
+              </List>
+            ))}
+          </WorkList>
+        ) : (
+          <EmptyText>
+            {!fetching && `${selectedTag}に関連した担当作品はございません`}
+          </EmptyText>
+        )}
       </Wrapper>
       {fetching && (
         <LoadingWrapper>
