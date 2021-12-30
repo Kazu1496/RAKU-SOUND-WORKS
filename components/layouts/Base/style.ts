@@ -77,8 +77,6 @@ export const Li = styled.li((props: { isActive: boolean }) =>
 
 export const Main = styled.main(() =>
   mq({
-    height: '1px',
-    minHeight: 'calc(100vh - 40px - 40px - 40px)',
     width: '100%',
   }),
 );

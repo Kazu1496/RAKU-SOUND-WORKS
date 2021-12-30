@@ -1,18 +1,10 @@
-import Image from 'next/image';
-
+/* eslint-disable @next/next/no-img-element */
 import { Wrapper } from './style';
 
 const TopTemplate: React.VFC = () => {
   return (
     <Wrapper>
-      <Image
-        src='/Logo_HP_Green.png'
-        width={450}
-        height={450}
-        quality={100}
-        objectFit='contain'
-        alt='Raku Sound Works'
-      />
+      <img src='/Logo_HP_Green.png' alt='Raku Sound Works' />
     </Wrapper>
   );
 };
