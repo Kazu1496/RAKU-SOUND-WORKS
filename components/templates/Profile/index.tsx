@@ -22,6 +22,11 @@ const ProfileTemplate: React.VFC<Props> = ({ profile }) => {
       path: 'https://www.instagram.com/raku_1101',
       alt: 'instagram',
     },
+    {
+      image: '/islet.png',
+      path: 'https://linktr.ee/Islet_thr',
+      alt: 'islet',
+    },
   ];
 
   return (
@@ -39,7 +44,16 @@ const ProfileTemplate: React.VFC<Props> = ({ profile }) => {
           {snsLinks.map((link) => (
             <li key={link.alt}>
               <a href={link.path} target='_blank' rel='noreferrer'>
-                <link.icon size='30px' />
+                {link.icon ? (
+                  <link.icon size='30px' />
+                ) : (
+                  <Image
+                    src={link.image}
+                    alt={link.alt}
+                    width='30px'
+                    height='30px'
+                  />
+                )}
               </a>
             </li>
           ))}
