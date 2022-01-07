@@ -26,7 +26,7 @@ const borderRadius = {
 } as const;
 
 const color = {
-  primary: '#64ADA1',
+  primary: '#039682',
   secondary: '#313331',
   white: '#FFF',
 } as const;
