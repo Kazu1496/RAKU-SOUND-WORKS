@@ -53,7 +53,7 @@ interface Props {
 const Select: React.FC<Props> = ({ value, options, onSelect }) => {
   return (
     <Wrapper>
-      <_Select defaultValue={value} onChange={(e) => onSelect(e.target.value)}>
+      <_Select value={value} onChange={(e) => onSelect(e.target.value)}>
         {options.map((opt) => (
           <option key={opt.value} value={opt.value}>
             {opt.text}

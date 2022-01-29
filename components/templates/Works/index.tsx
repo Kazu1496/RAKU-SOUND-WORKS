@@ -42,7 +42,7 @@ const WorksTemplate: React.VFC<Props> = ({ pickupWorks, works, tags }) => {
   const [_works, setWorks] = useState<Work[]>(sortedWorks(works));
   const [page, setPage] = useState(1);
   const [fetching, setFetching] = useState<boolean>(false);
-  const [selectedTag, setSelectedTag] = useState<Option['value']>('すべて');
+  const [selectedTag, setSelectedTag] = useState<Option['value']>('all');
   const ref = useRef<HTMLDivElement>(
     null,
   ) as React.MutableRefObject<HTMLDivElement>;
@@ -60,8 +60,8 @@ const WorksTemplate: React.VFC<Props> = ({ pickupWorks, works, tags }) => {
     () =>
       pickupWorks.filter(
         (w) =>
-          selectedTag === 'すべて' ||
-          w.tags.map((t) => t.name).includes(selectedTag),
+          selectedTag === 'all' ||
+          w.tags.map((t) => t.id).includes(selectedTag),
       ),
     [pickupWorks, selectedTag],
   );
@@ -103,7 +103,7 @@ const WorksTemplate: React.VFC<Props> = ({ pickupWorks, works, tags }) => {
       _works.length === FETCH_WORKS_LIMIT * page
     ) {
       getWorks({
-        filters: selectedTag === 'すべて' ? '' : `tags[contains]all`,
+        filters: selectedTag === 'all' ? '' : `tags[contains]${selectedTag}`,
       });
     }
   }, [intersection]);
@@ -119,19 +119,12 @@ const WorksTemplate: React.VFC<Props> = ({ pickupWorks, works, tags }) => {
   };
 
   const filterTags = (id: string) => {
-    const tag = _tags.find((tag) => tag.value === id);
-
-    if (!tag) {
-      alert('予期せぬエラーが発生しました');
-      return;
-    }
-
     getWorks({
       filters: id === 'all' ? '' : `tags[contains]${id}`,
       initialize: true,
     });
     setPage(0);
-    setSelectedTag(tag.text);
+    setSelectedTag(id);
   };
 
   return (
@@ -140,7 +133,7 @@ const WorksTemplate: React.VFC<Props> = ({ pickupWorks, works, tags }) => {
         isOpen={isOpen}
         handleClose={() => handleClose()}
         work={targetWork}
-        onClickTag={filterTags}
+        onClickTag={(id) => filterTags(id)}
       />
       <Wrapper>
         <HeadLine>WORKS</HeadLine>
