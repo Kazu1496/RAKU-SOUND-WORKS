@@ -21,8 +21,8 @@ export const TagSelector = styled.div(() =>
   mq({
     display: 'flex',
     justifyContent: 'center',
-    width: '150px',
-    margin: `0 0 ${spacing.xxl}`,
+    width: '180px',
+    margin: `${spacing.xxl} 0`,
   }),
 );
 
