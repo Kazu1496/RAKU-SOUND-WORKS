@@ -22,7 +22,7 @@ export const TagSelector = styled.div(() =>
     display: 'flex',
     justifyContent: 'center',
     width: '180px',
-    margin: `${spacing.xxl} 0`,
+    margin: `0 0 ${spacing.xxl}`,
   }),
 );
 
