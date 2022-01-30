@@ -14,6 +14,7 @@ interface Props {
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
   const pickupWorks = await client.getContents('works', {
+    orders: '-releasedAt',
     filters: `isPickedUp[equals]true`,
   });
   const works = await client.getContents('works', {
